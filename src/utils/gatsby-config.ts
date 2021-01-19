@@ -44,6 +44,13 @@ export const plugins = [
             showLineNumbers: true,
           },
         },
+        {
+          resolve: 'gatsby-remark-autolink-headers',
+          options: {
+            className: 'anchor-header',
+            elements: ['h2', 'h3', 'h4'],
+          },
+        },
       ],
     },
   },

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 import useSiteMetadata from '../utils/useSiteMetadata'
 const defaultOpenGraphImage = require('../images/og-default.png')
 
@@ -11,6 +12,7 @@ type Props = {
 }
 
 export default function SEO({ description = '', meta = [], image = null, title }: Props): JSX.Element {
+  const { t } = useTranslation()
   const site = useSiteMetadata()
   const metaDescription = description || site.siteMetadata.description
   const ogImageUrl = site.siteMetadata.siteUrl + (image || defaultOpenGraphImage)
@@ -21,7 +23,7 @@ export default function SEO({ description = '', meta = [], image = null, title }
         lang: site.siteMetadata.lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${t('nav.title')}`}
       meta={[
         {
           name: 'charSet',
